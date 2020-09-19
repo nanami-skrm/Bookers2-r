@@ -3,16 +3,23 @@
 <p><%= flash[:notice] %></p>
 
 <h2>User info</h2>
-<p>user image</p>
-<table>
-		<tr>
-			<th>name</th><td><%= @user.name %></td>
-		</tr>
-		<tr>
-			<th>introduction</th><td>introduction</td>
-		</tr>
-	</tbody>
-</table>
+<%= render 'users/profile', user: @user %>
+
 <h2>New book</h2>
+<%= render 'books/newform', book: @book %>
 
 <h2>Books</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Title</th><th>Opinion</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= @books.each do |f| %>
+			<tr>
+				<td>data</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
