@@ -1,4 +1,4 @@
-<p>user image</p>
+<%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
 <table>
 		<tr>
 			<th>name</th><td><%= user.name %></td>

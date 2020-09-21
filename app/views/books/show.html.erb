@@ -1,0 +1,20 @@
+<h1>books/show</h1>
+
+<p><%= flash[:notice] %></p>
+
+<h2>User info</h2>
+<%= render 'users/profile', user: @user %>
+
+<h2>New book</h2>
+<%= render 'books/newform', book: @new_book %>
+
+<h2>Book detail</h2>
+<table>
+	<tbody>
+		<tr>
+			<td>写真と名前</td>
+			<td><%= @book.title %></td>
+			<td><%= @book.body %></td>
+		</tr>
+	</tbody>
+</table>
