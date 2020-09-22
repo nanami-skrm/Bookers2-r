@@ -1,5 +1,7 @@
 <div class="container">
 	<p><%= flash[:notice] %></p>
+
+<!--エラー文が表示されない-->
 	<% if @book.errors.any? %>
 		<p><%= pluralize(@book.errors.count,"error") %>prohibited this book from being saved:</p>
 		<ul>
@@ -8,6 +10,11 @@
 			<% end %>
 		</ul>
 	<% end %>
+<!--エラー文が表示されない-->
+
+
+
+
 	<div class="row">
 		<div class="col-xs-3">
 			<h2>User info</h2>
@@ -24,6 +31,8 @@
 						<th></th>
 						<th>Title</th>
 						<th>Opinion</th>
+						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,6 +45,9 @@
 							</td>
 							<td><%= link_to book.title, book_path(book) %></td>
 							<td><%= book.body %></td>
+							<td></td>
+							<td><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+								<%= book.book_comments.count %></td>
 						</tr>
 					<% end %>
 				</tbody>

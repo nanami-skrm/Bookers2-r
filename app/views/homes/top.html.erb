@@ -8,12 +8,20 @@
 			you can share and exchange your opinions , inpressions , and emotions<br>
 
 			about various books!</p>
-
-			<%= link_to new_user_session_path do %>
-				<button type="button" class="btn btn-warning col-xs-offset-1 col-xs-10">Log in</button>
-			<% end %>
-			<%= link_to new_user_registration_path do %>
-				<button type="button" class="btn btn-info col-xs-offset-1 col-xs-10">Sign Up</button>
+			<% if user_signed_in? %>
+				<%= link_to user_path(current_user) do %>
+					<button type="button" class="btn btn-warning col-xs-offset-1 col-xs-10">Log in</button>
+				<% end %>
+				<%= link_to user_path(current_user) do %>
+					<button type="button" class="btn btn-info col-xs-offset-1 col-xs-10">Sign Up</button>
+				<% end %>
+			<% else %>
+				<%= link_to new_user_session_path do %>
+					<button type="button" class="btn btn-warning col-xs-offset-1 col-xs-10">Log in</button>
+				<% end %>
+				<%= link_to new_user_registration_path do %>
+					<button type="button" class="btn btn-info col-xs-offset-1 col-xs-10">Sign Up</button>
+				<% end %>
 			<% end %>
 		</div>
 	</div>

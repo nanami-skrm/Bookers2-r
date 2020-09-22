@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+	before_action :authenticate_user!
 
 	def index
 		@user = current_user
@@ -23,6 +24,23 @@ class BooksController < ApplicationController
 		@book = Book.find(params[:id])
 		@user = @book.user
 		@new_book = Book.new
+		@book_comment = @book.book_comment.new
+	end
+
+	def edit
+		@book = Book.find(params[:id])
+	end
+
+	def update
+		book = Book.find(params[:id])
+		book.update(books_params)
+		redirect_to book_path(book)
+	end
+
+	def destroy
+		book = Book.find(params[:id])
+		book.destroy
+		redirect_to books_path
 	end
 
 	private

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!
 
 	def index
 		@user = current_user
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
 	def update
 		user = User.find(params[:id])
 		user.update(user_params)
-		redirect_to user_path(user)
+		redirect_to user_path(user), notice: "You have updated user successfully."
 	end
 
 	private
