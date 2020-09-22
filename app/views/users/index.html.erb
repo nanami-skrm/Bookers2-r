@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<h2>User info</h2>
+			<%= render 'users/profile', user: @user %>
+
+			<h2>New book</h2>
+			<%= render 'books/newform', book: @book %>
+		</div>
+		<div class="col-xs-9">
+			<h2>Users</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>image</th>
+						<th>name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @users.each do |user| %>
+					<tr>
+						<td><%= attachment_image_tag(user, :profile_image, :fill, 35, 35, fallback:"no_image.jpg", size: "35x35") %></td>
+						<td><%= user.name %></td>
+						<td><%= link_to "Show", user_path(user) %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

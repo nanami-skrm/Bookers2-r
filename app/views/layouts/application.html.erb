@@ -10,6 +10,65 @@
   </head>
 
   <body>
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class= "container">
+              <p class="header-title">Bookers</p>
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to user_path(current_user) do %>
+                    <span class="glyphicon glyphicon-home"> Home</span>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to users_path do %>
+                    <span class="glyphicon glyphicon-user"> Users</span>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to books_path do %>
+                    <span class="glyphicon glyphicon-book"> Books</span>
+                    <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <span class="glyphicon glyphicon-log-in" > logout</span>
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to root_path do %>
+                    <span class="glyphicon glyphicon-home"> Home</span>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to homes_about_path do %>
+                    <span class="glyphicon glyphicon-link"> About</span>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_registration_path do %>
+                    <span class="glyphicon glyphicon-edit"> sign up</span>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_session_path do %>
+                    <span class="glyphicon glyphicon-log-in"> login</span>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
+    </header>
     <%= yield %>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <P class="text-right">CopyRight Infratop.inc</P>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

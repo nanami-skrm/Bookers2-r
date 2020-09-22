@@ -1,11 +1,20 @@
-<h1>Top</h1>
+<div class="container">
+	<%= flash[:notice] %>
+	<div class="row">
+		<div class="col-xs-offset-3 col-xs-6">
+			<h1>welcome to <span class="glyphicon glyphicon-book">Bookers</span>!!</h1>
+			<p>In<span class="glyphicon glyphicon-book"></span>Bookers,<br>
 
-<h1>welcome to Bookers!!</h1>
-<p>In Bookers,<br>
+			you can share and exchange your opinions , inpressions , and emotions<br>
 
-you can share and exchange your opinions , inpressions , and emotions<br>
+			about various books!</p>
 
-about various books!</p>
-
-<%= link_to "Log in", new_user_session_path %>
-<%= link_to "Sign Up", new_user_registration_path %>
+			<%= link_to new_user_session_path do %>
+				<button type="button" class="btn btn-warning col-xs-offset-1 col-xs-10">Log in</button>
+			<% end %>
+			<%= link_to new_user_registration_path do %>
+				<button type="button" class="btn btn-info col-xs-offset-1 col-xs-10">Sign Up</button>
+			<% end %>
+		</div>
+	</div>
+</div>
