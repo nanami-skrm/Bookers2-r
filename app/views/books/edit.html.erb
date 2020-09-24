@@ -1,6 +1,16 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-offset-3 col-xs-6">
+
+			<% if @book.errors.any? %>
+				<p><%= pluralize(@book.errors.count,"error") %>prohibited this book from being saved:</p>
+				<ul>
+					<% @book.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+				</ul>
+			<% end %>
+
 			<h2>Editing Book</h2>
 			<%= render 'books/newform', book: @book %>
 			<%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %>

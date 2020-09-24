@@ -1,4 +1,14 @@
 <div class="container">
+
+	<% if @user.errors.any? %>
+				<p><%= pluralize(@user.errors.count,"error") %>prohibited this book from being saved:</p>
+				<ul>
+					<% @user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+				</ul>
+			<% end %>
+
 	<h2>User info</h2>
 	<%= form_for(@user) do |f| %>
 		<p>Name</p>
